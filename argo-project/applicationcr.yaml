@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: helm-project
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    server: https://kubernetes.docker.internal:6443
+  project: default
+  source:
+    path: helm-project
+    repoURL: https://github.com/sridharts1998/argoproject/
+    targetRevision: main
